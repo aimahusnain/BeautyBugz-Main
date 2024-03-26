@@ -20,7 +20,7 @@ export default async function Home() {
         </div>
 
         <p className="text-center my-3 text-lg text-white">
-          Get ready! We're launching our product soon! <br /> See what all the
+          Get ready! We&apos;re launching our product soon! <br /> See what all the
           buzz is about in our launch email.
         </p>
         <h3 className="text-xl font-semibold text-white">
