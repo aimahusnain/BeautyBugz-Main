@@ -4,6 +4,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col py-6 gap-6 justify-between h-screen">
       <div />
+      
       <div className="  w-full flex items-center flex-col justify-center">
         <Image width={300} height={300} src="/Logo.svg" alt="Logo" />
 
