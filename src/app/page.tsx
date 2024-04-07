@@ -12,7 +12,7 @@ export default async function Home() {
           className="bg-cover bg-no-repeat w-full"
           style={{
             // Change the url to https://beautybugz.com/
-            backgroundImage: `url(http://localhost:3000/Gradient%20for%20comming%20soon.jpg)`,
+            backgroundImage: `url(https://beautybugz.com/Gradient%20for%20comming%20soon.jpg)`,
           }}
         >
           <h1 className=" py-3 font-bold text-7xl sm:text-9xl bg-white mix-blend-lighten uppercase text-center">
@@ -31,22 +31,6 @@ export default async function Home() {
 
       <section className="p-4">
         <div className="w-full md:w-[70%] md:mx-auto flex flex-col md:flex-row items-center justify-center text-center">
-          {/* <div
-            className="
-          
-          object-cover border-4 border-white shadow-[5px_5px_0_0_rgba(0,0,0,1)] shadow-white bg-indigo-50 mb-4 md:mb-0 ml-0 md:mr-5
-          
-          rounded-full object-top w-[40%] sm:w-[50%] mr-5 h-44 overflow-hidden"
-          >
-            <img
-              src="/CEO Image.jpg"
-              alt=""
-              className="object-cover"
-              width={300}
-              height={544}
-            />
-          </div> */}
-
           <img
             className="h-40 w-[40%] border-4 border-white shadow-[5px_5px_0_0_rgba(0,0,0,1)] shadow-white mb-6 md:w-96 mr-6 object-top object-cover rounded-full"
             src="/CEO Image.jpg"
