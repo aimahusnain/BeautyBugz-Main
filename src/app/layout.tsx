@@ -40,15 +40,15 @@ export default function RootLayout({
         ></script>
       </head>
       <body
-        // bg-desired-white
-        className={`${inter.className} bg-pink-500 text-your-desired-text-color`}
+        // bg-pink-500
+        className={`${inter.className} bg-desired-white`}
       >
-        {/* <Sale /> */}
-        {/* <Header /> */}
+        <Sale />
+        <Header />
 
         <SessionProvider>{children}</SessionProvider>
         {/* <UpiUp /> */}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

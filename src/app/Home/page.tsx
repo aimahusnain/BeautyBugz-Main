@@ -1,161 +1,64 @@
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/src/components/ui/carousel";
-import { prisma } from "@/src/lib/db/prisma";
 import Image from "next/image";
-import Link from "next/link";
-import Pioneers from "../../components/Pioneers";
-import StayInTouch from "../../components/StayInTouch";
-import TheCarousel from "../../components/TheCarousel";
-import WhyChoose from "../../components/WhyChoose";
-import HelpingSection from "../../components/helping section";
 
-interface HomeProps {
-  searchParams: { page: string };
-}
-
-export default async function Home({
-  searchParams: { page = "1" },
-}: HomeProps) {
-  const currentPage = parseInt(page);
-  const pageSize = 7;
-  const heroItemCount = 1;
-  const totalItemCount = await prisma.product.count();
-  const totalPages = Math.ceil((totalItemCount - heroItemCount) / pageSize);
-  const products = await prisma.product.findMany({
-    orderBy: { id: "desc" },
-  });
-
-  const collections = await prisma.product.findMany({
-    distinct: ["collections"],
-  });
-
-  const imageUrls = [
-    "/Acne Prone.jpg",
-    "/Enlarged Pores.jfif",
-    "/Pigmentation.jfif",
-    "/Pigmentation.jfif",
-  ];
-
+export default async function Home() {
   return (
-    <>
-      <div className="circlePositon w-[590px] h-[400px] bg-pink-600/60 rounded-full absolute -z-[1] top-[110%] left-[0%] translate-x-[-50%] translate-y-[-50%] blur-[90px]" />
+    <div className="flex flex-col py-6 gap-6 justify-between h-screen">
+      <div />
 
-      <div className="relative sm:hidden block">
-        <Image
-          width={900}
-          height={506}
-          src="/homepage - mobile.jpg"
-          draggable={false}
-          alt="HomePage Image"
-          className="w-full"
-        />
-        <div className="absolute bottom-3 left-4 p-4 right-4 sm:left-10 sm:right-10 hover:bg-black/20 transition-all bg-gradient-to-tr rounded-none from-black/40 to-transparent backdrop-blur-sm  text-white">
-          <h3 className="text-xl font-semibold mb-1">-Presenting-</h3>
-          <h3 className="text-2xl sm:text-xl font-semibold">
-            <span className="text-pink-600">Dream Glow</span> Cream{" "}
-          </h3>
-          <h4 className="text-xl mb-4">Instant Skin Reviviever</h4>
-          <h3 className="text-xl font-semibold mb-">
-            The #1 Beauty Cream in Pakistan
-          </h3>
-          <div className="flex justify-between items-center">
-            <p className="text-sm sm:text-base">${products[0].price}</p>
-            <Link
-              className="inline-block bg-pink-600 hover:bg-purple-600 text-white py-2 px-4 rounded-md font-semibold uppercase tracking-wide transition duration-300"
-              href={`products/${products[0].id}`}
-            >
-              Shop Now
-            </Link>
-          </div>
-        </div>
-      </div>
+      <div className="  w-full flex items-center flex-col justify-center">
+        <Image width={300} height={300} src="/Logo.svg" alt="Logo" />
 
-      <div className="relative hidden sm:block">
-        <Image
-          width={900}
-          height={506}
-          src="/homepage.png"
-          draggable={false}
-          alt="HomePage Image"
-          className="w-full"
-        />
-        <div className="absolute bottom-6 w-[60%] md:w-[50%] lg:w-[40%] left-4 right-4 md:left-10 md:right-10 hover:bg-black/20 transition-all bg-gradient-to-tr rounded-none from-black/40 to-transparent backdrop-blur-sm md:p-8 p-4 text-white">
-          <h3 className="text-2xl font-semibold mb-1">-Presenting-</h3>
-          <h3 className="text-4xl font-semibold mb-1">
-            <span className="text-pink-600">Dream Glow</span> Cream{" "}
-          </h3>
-          <h4 className="text-xl font-semibold mb-4">
-            Instant Skin Reviviever
-          </h4>
-          <h3 className="text-4xl font-semibold mb-14">
-            The #1 Beauty Cream in Pakistan
-          </h3>
-          <div className="flex justify-between items-center">
-            <p className="text-sm">${products[0].price}</p>
-            <Link
-              className="inline-block bg-pink-600 hover:bg-purple-600 text-white py-2 px-4 rounded-md font-semibold uppercase tracking-wide transition duration-300"
-              href={`products/${products[0].id}`}
-            >
-              Shop Now
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      <section className="mx-auto max-w-2xl px-4 pt-10 sm:pb-6 lg:max-w-7xl">
-        {currentPage === 1 && (
-          // <AssetsMotion>
-          <div className="items-center flex-col flex justify-center">
-            {/* <h1 className="mb-5 text-4xl font-bold font-sans text-pink-500">
-                The Ultimate Skin Assets
-              </h1> */}
-            <TheCarousel products={products} />
-          </div>
-          // </AssetsMotion>
-        )}
-
-        <WhyChoose />
-
-        <Carousel
-          opts={{
-            align: "start",
+        <div
+          className="bg-cover bg-no-repeat w-full"
+          style={{
+            // Change the url to https://beautybugz.com/
+            backgroundImage: `url(https://beautybugz.com/Gradient%20for%20comming%20soon.jpg)`,
           }}
-          className="w-full"
         >
-          <CarouselContent>
-            {collections.map((collection, index) => (
-              <CarouselItem
-                key={index}
-                className="relative w-fit md:basis-1/2 lg:basis-1/4"
-              >
-                <Link href={`collections/${collection.collections}`}>
-                  <Image
-                    src={imageUrls[index]}
-                    alt={`Image ${index + 1}`}
-                    width={700}
-                    height={700}
-                    className="rounded-[3rem] transition-all hover:opacity-80 shadow-md shadow-pink-200 bg-pink-600 object-cover object-center h-full w-full"
-                  />
-                  <h1 className="absolute bottom-5 left-[4rem] w-fit bg-pink-600 backdrop-blur-sm rounded-full text-white text-xl font-bold py-2 px-6">
-                    {collection.collections}
-                  </h1>
-                </Link>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+          <h1 className=" py-3 font-bold text-7xl sm:text-9xl bg-white mix-blend-lighten uppercase text-center">
+            Coming Soon
+          </h1>
+        </div>
 
-        <Pioneers />
-        <StayInTouch />
-        <HelpingSection />
+        <p className="text-center my-3 text-lg text-white">
+          Get ready! We&apos;re launching our product soon! <br /> See what all
+          the buzz is about in our launch email.
+        </p>
+        <h3 className="text-xl font-semibold text-white">
+          info@beautybugz.com
+        </h3>
+      </div>
+
+      <section className="p-4">
+        <div className="w-full md:w-[70%] md:mx-auto flex flex-col md:flex-row items-center justify-center text-center">
+          <img
+            className="h-40 w-[40%] border-4 border-white shadow-[5px_5px_0_0_rgba(0,0,0,1)] shadow-white mb-6 md:w-96 mr-6 object-top object-cover rounded-full"
+            src="/CEO Image.jpg"
+            alt="CEO Image"
+          />
+
+          <div className="flex flex-col">
+            <div className="md:text-justify mb-3">
+              <p className="text-white font-bold text-xl mb-3">CEO Message</p>
+              <div className="text-slate-300 font-semibold text-center md:text-left">
+                <p>
+                  My name is Rafe Vefa, and this has been my dream since 2020,
+                  which is now turning into reality. Our goal is to
+                  revolutionize the beauty industry. We aim to establish a
+                  beauty empire. Our objective is to bring a new essence to both
+                  present and future.
+                </p>
+                <p></p>
+                <p>
+                  We are rapidly approaching the launch phase and entering the
+                  market swiftly. And we would like you to be a part of our
+                  mission as well.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-    </>
+    </div>
   );
 }
