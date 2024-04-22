@@ -9,10 +9,9 @@ import UpiUp from "../components/UpiUp";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// TODO: Ask to Rafey for the Description of his brand
 export const metadata: Metadata = {
   title: "Beauty Bugz",
-  description: "Cosmetics Brand",
+  description: "Love Beauty for Ever!",
 };
 
 export default function RootLayout({
@@ -40,15 +39,15 @@ export default function RootLayout({
         ></script>
       </head>
       <body
-        // bg-pink-500
-        className={`${inter.className} bg-desired-white`}
+        // bg-desired-white
+        className={`${inter.className} bg-pink-500`}
       >
-        <Sale />
-        <Header />
+        {/* <Sale /> */}
+        {/* <Header /> */}
 
         <SessionProvider>{children}</SessionProvider>
         {/* <UpiUp /> */}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
