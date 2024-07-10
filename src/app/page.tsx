@@ -1,8 +1,3 @@
-
-
-
-
-
 import Image from "next/image";
 
 export default async function Home() {
@@ -47,7 +42,7 @@ export default async function Home() {
               <p className="text-white font-bold text-xl mb-3">CEO Message</p>
               <div className="text-slate-300 font-semibold text-center md:text-left">
                 <p>
-                  My name is Rafe Vefa, and this has been my dream since 2020,
+                  My name is Azaan, and this has been my dream since 2020,
                   which is now turning into reality. Our goal is to
                   revolutionize the beauty industry. We aim to establish a
                   beauty empire. Our objective is to bring a new essence to both

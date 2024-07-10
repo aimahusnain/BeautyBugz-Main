@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 // import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata = {
-  title: "Add Product - Flowmazon",
+  title: "Add Product - BeautyBugz",
 };
 
 async function addProduct(formData: FormData) {
